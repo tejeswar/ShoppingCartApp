@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+  
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/shoppingbag.css">
+
+</head>
+<body>
+    <h3 style="text-align:center;margin-top:2%">SHOPPING CART MODULE </h3> 
+    <hr id="underline">
+    <div id="tableHeaders">
+    <div>3 Items</div>
+    <div></div>
+    <div>Size</div>
+    <div>Quantity</div>
+    <div>Price</div>
+    </div>
+    <div id="itemsContainer">
+        <hr >
+        <div id="singleItem">
+              <div id="imagePart"><img src="images/shirt1.jpg" alt=""></div>
+              <div>
+                  Solid Red Tshirt<br>
+                  Style#:Ms13k<br>
+                  Color:Red
+                  <br><br><br><br><br>
+                 <ul>
+                     <li><a href="#myModal" data-toggle="modal">Edit</a></li>
+                     <li><a href="javascript:void(0);">Remove</a></li>
+                     <li><a href="javascript:void(0);">Save for later</a></li>
+                 </ul>
+              </div>
+              <div>5</div>
+              <div><input type="number" style="width:40px" min=1></div>
+              <div>11</div>
+
+        </div>
+		 <hr >
+        <div id="singleItem">
+              <div id="imagePart"><img src="images/shirt2.jpg" alt=""></div>
+              <div>
+                  Solid Blue Tshirt<br>
+                  Style#:Ms14k<br>
+                  Color:Blue
+                  <br><br><br><br><br>
+                 <ul>
+                     <li><a href="#myModal" data-toggle="modal">Edit</a></li>
+                     <li><a href="javascript:void(0);">Remove</a></li>
+                     <li><a href="javascript:void(0);">Save for later</a></li>
+                 </ul>
+              </div>
+              <div>5</div>
+              <div><input type="number" style="width:40px" min=1></div>
+              <div>11</div>
+
+        </div>
+		 <hr >
+        <div id="singleItem">
+              <div id="imagePart"><img src="images/shirt3.jpg" alt=""></div>
+              <div>
+                  Solid Yellow Tshirt<br>
+                  Style#:Ms15k<br>
+                  Color:Yellow
+                  <br><br><br><br><br>
+                 <ul>
+                     <li><a href="#myModal" data-toggle="modal">Edit</a></li>
+                     <li><a href="javascript:void(0);">Remove</a></li>
+                     <li><a href="javascript:void(0);">Save for later</a></li>
+                 </ul>
+              </div>
+              <div>5</div>
+              <div><input type="number" style="width:40px" min=1></div>
+              <div>11</div>
+
+        </div>
+    </div>
+
+     <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+                <h4 class="modal-title">Modal Header</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        </div>
+        <div class="modal-body">
+                <div class="container">
+                        <div class="row">
+                          <div class="col-sm" style="text-align: center">
+                                <hr >
+                                PAISEL JEAN<br>
+                                $21
+                                <br>
+                                <br><br>
+                                PAISLEY <br>
+                                <select name="size">
+                                        <option value="Size">Size</option>
+                                        <option value="M">M</option>
+                                        <option value="S">S</option>
+                                      
+                                      </select>
+                                     <input type="number" style="width:40px; height:25px;" min=1 />
+
+                          </div>
+                          <div class="col-sm">
+                            <img src="images/shirt1.jpg" alt="">
+                          </div>
+                         
+                        </div>
+                      </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
