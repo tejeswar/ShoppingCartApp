@@ -61,3 +61,20 @@ ul li:last-child::after { display: none; }
 #singleItem div:nth-of-type(5) {flex-grow: 1;}
 
 
+#totalPart{
+    display: flex;
+}
+#helpSection{
+    flex-grow: 1;
+    /* background-color: aqua; */
+}
+#billingPart{
+    flex-grow: 3;
+    /* background-color: red; */
+}
+#promoSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+

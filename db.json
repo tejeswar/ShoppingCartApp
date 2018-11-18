@@ -3,19 +3,19 @@
 
         {
             "id":1,
-            "img":"./src/images/shirt1.jpg",
-            "name":"SOLID GREEN COTTON TSHIRT",
-            "style":"MS13KT124",
-            "color":"Blue",
+            "img":"./images/shirt1.jpg",
+            "name":"Solid Red Tshirt",
+            "style":"Ms13k",
+            "color":"Red",
             "size":"S",
             "qty":"1",
             "price":"11.00"
         },
         {
             "id":2,
-            "img":"./src/images/shirt2.jpg",
-            "name":"SOLID GREEN COTTON TSHIRT",
-            "style":"MS13KT124",
+            "img":"./images/shirt2.jpg",
+            "name":"Solid Blue Tshirt",
+            "style":"MS14K",
             "color":"Blue",
             "size":"M",
             "qty":"1",
@@ -23,10 +23,10 @@
         },
         {
             "id":3,
-            "img":"./src/images/shirt3.jpg",
-            "name":"SOLID GREEN COTTON TSHIRT",
-            "style":"MS13KT124",
-            "color":"Blue",
+            "img":"./images/shirt3.jpg",
+            "name":"Solid Yellow Tshirt",
+            "style":"MS15K",
+            "color":"Yellow",
             "size":"S",
             "qty":"1",
             "price":"11.00"

@@ -1,5 +1,5 @@
 console.log("Hello world");
-import '../css/shoppingbag.css';
+
 
 var content =   `SHOPPING BAD MODULE
 <hr id="underline">
@@ -32,11 +32,4 @@ var content =   `SHOPPING BAD MODULE
     </div>
 </div>`;
 
-function renderHtml(){
- document.getElementById("cartContainer").innerHTML = content;
-
- 
-
-
-}
-renderHtml();
+getAllItems();
