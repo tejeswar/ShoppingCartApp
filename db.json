@@ -22,7 +22,7 @@
             "color":"Blue",
             "size":"M",
             "qty":"2",
-            "price":"11.00"
+            "price":"9.00"
         },
         {
             "id":3,
@@ -32,7 +32,7 @@
             "color":"Yellow",
             "size":"S",
             "qty":"1",
-            "price":"11.00"
+            "price":"15.00"
         }
     ]
 }

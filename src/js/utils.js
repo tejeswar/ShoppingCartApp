@@ -28,9 +28,9 @@ ${singleItem.name}<br>
     Color:${singleItem.color}
     <br><br><br><br><br>
    <ul>
-       <li><a href="#myModal" data-toggle="modal">Edit</a></li>
-       <li><a href="javascript:void(0);">Remove</a></li>
-       <li><a href="javascript:void(0);">Save for later</a></li>
+       <li><a id="${singleItem.id}" class="edit" href="#myModal" data-toggle="modal">Edit</a></li>
+       <li><a  href="javascript:void(0);">Remove</a></li>
+       <li><a  href="javascript:void(0);">Save for later</a></li>
    </ul>
 </div>
 <div style="margin-left:3rem">${singleItem.size}</div>

@@ -28,3 +28,23 @@ console.log("Inside getAllItems");
       })
    
 }
+
+function getSpecificItem(id) {
+  /*
+  const result = await $.ajax({
+    url: 'http://localhost:3004/allItems',
+    type: 'GET',
+    // data: {varName : varValue},
+  });
+  return result;
+  */
+ return new Promise(function (resolve, reject) {
+  $.ajax({
+      url: 'http://localhost:3004/allItems',
+      success: function (data) {
+         
+         resolve(data.items[id-1]);
+      }
+  });
+});
+}
