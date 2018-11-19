@@ -1,4 +1,7 @@
 {
+"allItems":
+{
+    "promotioncode":{"JF10":7},
     "items":[
 
         {
@@ -18,7 +21,7 @@
             "style":"MS14K",
             "color":"Blue",
             "size":"M",
-            "qty":"1",
+            "qty":"2",
             "price":"11.00"
         },
         {
@@ -32,4 +35,5 @@
             "price":"11.00"
         }
     ]
+}
 }

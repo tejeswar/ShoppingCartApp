@@ -20,7 +20,7 @@ var allItems = "";
 for(var itemCount = 0;itemCount < arrOfItems.length; itemCount++){
 var singleItem = arrOfItems[itemCount];
 allItems = allItems+`
-<div id="singleItem">
+<div class="singleItem">
 <div id="imagePart"><img src="${singleItem.img}" alt=""></div>
 <div>
 ${singleItem.name}<br>
@@ -33,13 +33,11 @@ ${singleItem.name}<br>
        <li><a href="javascript:void(0);">Save for later</a></li>
    </ul>
 </div>
-<div>${singleItem.size}</div>
+<div style="margin-left:3rem">${singleItem.size}</div>
 <div><input type="number" style="width:40px" min=1 value="${singleItem.qty}" readonly></div>
-<div>$${singleItem.price}</div>
-
+<div>$${singleItem.qty*singleItem.price}</div>
 </div>
 <hr >
-
 `;
 
 }
@@ -48,8 +46,87 @@ return allContents;
      
 
 }
+function calculateTotalPrice(arrOfItems){
+    var totalAmount = 0;
+    for(var itemCount = 0;itemCount < arrOfItems.length; itemCount++){
+        var singleItem = arrOfItems[itemCount];
+        totalAmount = totalAmount+singleItem.qty*singleItem.price
+    }
+    console.log("totalAmount:"+totalAmount);
+    return totalAmount;
+}
+function promoCodePrice(arrOfItems){
+var promoCodePrice = arrOfItems.promotioncode.value;
+return promoCodePrice;
+}
 function renderHtml(arrOfItems){
 var theWholeContent = makeTableHeaders(arrOfItems.length)+makeTableContent(arrOfItems);
-console.log(theWholeContent);
+//console.log(theWholeContent);
 document.getElementById("itemsHolder").innerHTML = theWholeContent;
+//calculateTotalPrice(arrOfItems);
+
+}
+//////////////////////////////////////////////
+function constructBillingSectionTemplateCode(wholeData){
+ var billingPart = `
+ <div id="billingPart">
+ <div style="margin-left:3%;margin-top:3%;margin-right: 3%">
+    <div id="promoSection">
+       <div>
+           ENTER PROMOTION CODE <br>OR GIFT CARD
+          
+       </div>
+       <div>
+           <input type="text"/><input type="button" value="APPLY">
+       </div>
+   </div>
+   <hr id="underline">
+   <table style="width:100%">
+       <tbody><tr>
+         <td ><span>SUBTOTAL</span></td>
+         <td align="center"><span> ${calculateTotalPrice(wholeData.items)}</span></td>
+       </tr>
+       <tr>
+       <td ><span>PROMOTION CODE JF10 APPLIED</span></td>
+       <td align="center"><span>-${wholeData.promotioncode.JF10}</span></td>
+       </tr>
+       <tr>
+       <td ><span> ESTIMATED SHIPPINGS* <br>
+        </span></td>
+       <td align="center"><span>FREE</span></td>
+       </tr>
+      
+       </tbody>
+       </table>
+       You qualify for free shipping <br>
+       because your order is over      
+            
+  
+  
+   <hr>
+   <table style="width:100%">
+       <tbody>
+       <tr>
+         <td ><span>ESTIMATED TOTAL</span></td>
+         <td align="center"><span>${calculateTotalPrice(wholeData.items)-wholeData.promotioncode.JF10}</span></td>
+       </tr>
+       </tbody>
+   </table>
+    
+   Tax will be applied during checkout
+
+   <hr id="underline">
+  <p style="padding-left:70%">
+     <u>CONTINUE SHOPPING</u>
+       <input type="button" value="CHECKOUT"> 
+  </p>
+ </div>
+</div>
+ `;
+return billingPart;
+}
+function renderBillingHtml(wholeData){
+
+var totalTempCode =startingBillingPart+helpSection+constructBillingSectionTemplateCode(wholeData)+endingBillingPart;
+document.getElementById("priceHolder").innerHTML = totalTempCode;
 }

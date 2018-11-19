@@ -15,7 +15,7 @@ body{
 #tableHeaders div:nth-of-type(3) {flex: 1;}
 #tableHeaders div:nth-of-type(4) {flex: 1;}
 #tableHeaders div:nth-of-type(5) {flex: 1;}
-#singleItem{
+.singleItem{
     display: flex;
     flex-flow: row nowrap;
     flex-grow: 1;
@@ -54,11 +54,11 @@ a{
 ul li:last-child::after { display: none; }
 #firs
 
-#singleItem div:nth-of-type(1) {flex-grow: 1;}
-#singleItem div:nth-of-type(2) {flex-grow: 4;}
-#singleItem div:nth-of-type(3) {flex-grow: 1;}
-#singleItem div:nth-of-type(4) {flex-grow: 1;}
-#singleItem div:nth-of-type(5) {flex-grow: 1;}
+.singleItem div:nth-of-type(1) {flex-grow: 1;}
+.singleItem div:nth-of-type(2) {flex-grow: 4;}
+.singleItem div:nth-of-type(3) {flex-grow: 1;}
+.singleItem div:nth-of-type(4) {flex-grow: 1;}
+.singleItem div:nth-of-type(5) {flex-grow: 1;}
 
 
 #totalPart{
@@ -76,5 +76,3 @@ ul li:last-child::after { display: none; }
     display: flex;
     justify-content: space-between;
 }
-
-
