@@ -1,9 +1,7 @@
 console.log("Hello world");
 window.onload = function(){
     
-   document.getElementById("editItem").addEventListener("click",function(event){
-       console.log("Update buttom got clicked");
-   });
+   
 
    
     addDyanaicEventHandler();
@@ -11,10 +9,36 @@ window.onload = function(){
  };
  function addDyanaicEventHandler(){
     console.log("adding dyanamic event listener");
-
+    $("html").on("click",".removeItem",function(){
+      
+      var itemId = this.id.split("_")[1];
+      console.log("remove button got clicked:"+itemId);
+      deleteSpecificItem(itemId);
+    })
+///////////////////////////
+$("html").on("click",".updateItem",function(){
+  console.log("Uupdate button got clicked:"+this.id);
+  //$('#myModal').modal('hide');//it will also work
+  //setTimeout( function(){$("#myModal").modal('hide')}, 300 );
+  var itemId = this.id.split("_")[1];
+  getSpecificItem(itemId).then(data=>{
+    var shirtSize = document.getElementById("shirtSize").value;
+    var shirtQnty = document.getElementById("qnty").value.split(":")[1] ;
+    console.log(shirtSize);
+    console.log(shirtQnty);
+    data.qty = shirtQnty;
+    data.size = shirtSize;
+    console.log(data);
+    var updateItemUrl = "http://localhost:3004/items/"+data.id;
+    updateSpecificItem(data,updateItemUrl);
+  })
+  $("#closeButn").click();
+  
+});
     $("#itemsHolder").on("click",".edit",function(event){
 
         console.log("edit got clicked");
+    
         //console.dir(event);
         console.log(this);
         getSpecificItem(this.id).then(data=>{
@@ -27,6 +51,9 @@ window.onload = function(){
            document.getElementById("image").src = data.img;
            document.getElementById("shirtSize").value = data.size;
            document.getElementById("qnty").value = "Qty:"+data.qty;
+           var updateButn = document.getElementsByClassName("updateItem");
+           console.dir(updateButn);
+           updateButn[0].setAttribute("id","edit_"+data.id) ;
         })
     })
 }
@@ -62,7 +89,7 @@ var content = `
                                   
                                   </select>
                                  <input type="number" style="width:40px; height:25px;" min=1 />
-                                 <br><br> <input type="button" value="EDIT">
+                                 <br><br> <span id="editItem"><input type="button" value="EDIT" id="" /></span>
                       </div>
                       <div class="col-sm">
                         <img src="images/shirt1.jpg" alt="">

@@ -29,7 +29,7 @@ ${singleItem.name}<br>
     <br><br><br><br><br>
    <ul>
        <li><a id="${singleItem.id}" class="edit" href="#myModal" data-toggle="modal">Edit</a></li>
-       <li><a  href="javascript:void(0);">Remove</a></li>
+       <li><a  id="remove_${singleItem.id}" class="removeItem" href="#";">Remove</a></li>
        <li><a  href="javascript:void(0);">Save for later</a></li>
    </ul>
 </div>
@@ -67,6 +67,7 @@ document.getElementById("itemsHolder").innerHTML = theWholeContent;
 
 }
 //////////////////////////////////////////////
+/*
 function constructBillingSectionTemplateCode(wholeData){
  var billingPart = `
  <div id="billingPart">
@@ -127,6 +128,73 @@ return billingPart;
 }
 function renderBillingHtml(wholeData){
 
-var totalTempCode =startingBillingPart+helpSection+constructBillingSectionTemplateCode(wholeData)+endingBillingPart;
-document.getElementById("priceHolder").innerHTML = totalTempCode;
-}
+    var totalTempCode =startingBillingPart+helpSection+constructBillingSectionTemplateCode(wholeData)+endingBillingPart;
+    document.getElementById("priceHolder").innerHTML = totalTempCode;
+    }
+*/
+function constructBillingSectionTemplateCode1(data,promo){
+    
+    var promoValue = promo[0].value;
+    var billingPart = `
+    <div id="billingPart">
+    <div style="margin-left:3%;margin-top:3%;margin-right: 3%">
+       <div id="promoSection">
+          <div>
+              ENTER PROMOTION CODE <br>OR GIFT CARD
+             
+          </div>
+          <div>
+              <input type="text"/><input type="button" value="APPLY">
+          </div>
+      </div>
+      <hr id="underline">
+      <table style="width:100%">
+          <tbody><tr>
+            <td ><span>SUBTOTAL</span></td>
+            <td align="center"><span> ${calculateTotalPrice(data)}</span></td>
+          </tr>
+          <tr>
+          <td ><span>PROMOTION CODE JF10 APPLIED</span></td>
+          <td align="center"><span>-${promoValue}</span></td>
+          </tr>
+          <tr>
+          <td ><span> ESTIMATED SHIPPINGS* <br>
+           </span></td>
+          <td align="center"><span>FREE</span></td>
+          </tr>
+         
+          </tbody>
+          </table>
+          You qualify for free shipping <br>
+          because your order is over      
+               
+     
+     
+      <hr>
+      <table style="width:100%">
+          <tbody>
+          <tr>
+            <td ><span>ESTIMATED TOTAL</span></td>
+            <td align="center"><span>${calculateTotalPrice(data)-promoValue}</span></td>
+          </tr>
+          </tbody>
+      </table>
+       
+      Tax will be applied during checkout
+   
+      <hr id="underline">
+     <p style="padding-left:70%">
+        <u>CONTINUE SHOPPING</u>
+          <input type="button" value="CHECKOUT"> 
+     </p>
+    </div>
+   </div>
+    `;
+   return billingPart;
+   }
+
+function renderBillingHtml1(data,promo){
+console.log(promo);
+    var totalTempCode =startingBillingPart+helpSection+constructBillingSectionTemplateCode1(data,promo)+endingBillingPart;
+    document.getElementById("priceHolder").innerHTML = totalTempCode;
+    }

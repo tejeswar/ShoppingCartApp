@@ -1,6 +1,7 @@
 function getAllItems(){
 console.log("Inside getAllItems");
-    var url = "http://localhost:3004/allItems"
+    //var url = "http://localhost:3004/allItems"
+    var url = "http://localhost:3004/items"
     var res = fetch(url)
       .then(resp => {
         console.log(resp.status);
@@ -15,10 +16,19 @@ console.log("Inside getAllItems");
        return resp.json();
       })
       .then(data => {
-        console.log(data);
-       renderHtml(data.items);
-      
-      renderBillingHtml(data);
+       // console.log(data);
+       renderHtml(data);
+       var url1 = "http://localhost:3004/promotioncodes";
+       fetch(url1).then(resp1=>{
+         
+        return resp1.json();
+       })
+       .then(promo =>{
+         console.log(data);
+         console.log(promo);
+            renderBillingHtml1(data,promo);
+       })
+     
        
        
         return data
@@ -40,11 +50,51 @@ function getSpecificItem(id) {
   */
  return new Promise(function (resolve, reject) {
   $.ajax({
-      url: 'http://localhost:3004/allItems',
+      url: 'http://localhost:3004/items',
       success: function (data) {
          
-         resolve(data.items[id-1]);
+         //resolve(data.items[id-1]);
+         resolve(data[id-1]);
       }
   });
 });
+}
+function updateSpecificItem(body,url){
+
+  return new Promise(function(resolve,reject){
+    $.ajax({
+        type:'PUT',
+        url:url,
+        data:body,
+        success:function(res){
+            console.log("Response for Update:");
+
+            console.table(res);
+            getAllItems();
+
+        },
+        error:function(){
+            console.log("Error occured while updataing the record");
+        }
+    })
+  });
+
+}
+
+function deleteSpecificItem(itemId){
+
+  $.ajax({
+    type:'DELETE',
+    url:'http://localhost:3004/items/'+itemId,
+    success:function(res){
+      console.log("Item got removed successfully...");
+
+      console.table(res);
+      getAllItems();
+
+  },
+  error:function(){
+      console.log("Error occured while deleting  the item");
+  }
+})
 }
