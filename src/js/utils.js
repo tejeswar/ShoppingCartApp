@@ -35,7 +35,7 @@ ${singleItem.name}<br>
 </div>
 <div style="margin-left:3rem">${singleItem.size}</div>
 <div><input type="number" style="width:40px" min=1 value="${singleItem.qty}" readonly></div>
-<div>$${singleItem.qty*singleItem.price}</div>
+<div><small><sup>$</sup></small>${singleItem.qty*singleItem.price}</div>
 </div>
 <hr >
 `;
@@ -150,16 +150,16 @@ function constructBillingSectionTemplateCode1(data,promo){
       <hr id="underline">
       <table style="width:100%">
           <tbody><tr>
-            <td ><span>SUBTOTAL</span></td>
-            <td align="center"><span> ${calculateTotalPrice(data)}</span></td>
+            <td ><b><span>SUBTOTAL</span></b></td>
+            <td align="center"><small><sup>$</sup></small><span>${calculateTotalPrice(data)}</span></td>
           </tr>
           <tr>
-          <td ><span>PROMOTION CODE JF10 APPLIED</span></td>
-          <td align="center"><span>-${promoValue}</span></td>
+          <td ><b><span>PROMOTION CODE JF10 APPLIED</span></b></td>
+          <td align="center">-<small><sup>$<span></sup></small>${promoValue}</span></td>
           </tr>
           <tr>
-          <td ><span> ESTIMATED SHIPPINGS* <br>
-           </span></td>
+          <td ><b><span> ESTIMATED SHIPPINGS* <br>
+           </span></b></td>
           <td align="center"><span>FREE</span></td>
           </tr>
          
@@ -174,8 +174,8 @@ function constructBillingSectionTemplateCode1(data,promo){
       <table style="width:100%">
           <tbody>
           <tr>
-            <td ><span>ESTIMATED TOTAL</span></td>
-            <td align="center"><span>${calculateTotalPrice(data)-promoValue}</span></td>
+            <td ><b><span>ESTIMATED TOTAL</span></b></td>
+            <td align="center"><small><sup>$<span></sup></small>${calculateTotalPrice(data)-promoValue}</span></td>
           </tr>
           </tbody>
       </table>
